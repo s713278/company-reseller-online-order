@@ -20,11 +20,15 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name="ORDER_INFO")
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class OrderVO implements Serializable{
 
 	/**

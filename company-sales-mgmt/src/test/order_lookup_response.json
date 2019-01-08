@@ -1,0 +1,61 @@
+{
+  "id": 1,
+  "cartItems": [
+    {
+      "id": 3,
+      "productVO": {
+        "id": 1,
+        "name": "Tea Glasses",
+        "price": 15,
+        "stockLevel": 990,
+        "stockThresholdLevel": 100
+      },
+      "sellerQuanity": 10,
+      "allocatedQuanity": 10,
+      "unitPrice": 15,
+      "itemPrice": 150,
+      "allItemsAvailable": null
+    },
+    {
+      "id": 4,
+      "productVO": {
+        "id": 2,
+        "name": "WIne Glasses",
+        "price": 25,
+        "stockLevel": 900,
+        "stockThresholdLevel": 100
+      },
+      "sellerQuanity": 100,
+      "allocatedQuanity": 100,
+      "unitPrice": 25,
+      "itemPrice": 2500,
+      "allItemsAvailable": null
+    }
+  ],
+  "seller": {
+    "id": 101,
+    "name": "Apollo Health Pharmacy",
+    "porestriction": true,
+    "polimit": 10000,
+    "hibernateLazyInitializer": {},
+    "contactInfo": null
+  },
+  "subTotal": 2650,
+  "tax": 0,
+  "disccount": 0,
+  "total": 2650,
+  "notesFromSeller": "Do delivery by January-26,2019 without fail",
+  "allProductsInStock": null,
+  "paymentInfo": {
+    "id": 2,
+    "amout": 2650,
+    "paymentType": "PO_GENERATED",
+    "paymentStatus": "PENDING",
+    "dueDate": "2019-01-08T18:31:36.806",
+    "createdDate": "2019-01-08T18:31:36.806",
+    "modifiedDate": "2019-01-08T18:31:36.806",
+    "hibernateLazyInitializer": {}
+  },
+  "createdDate": "2019-01-08T18:31:36.821",
+  "modifiedDate": "2019-01-08T18:31:36.821"
+}

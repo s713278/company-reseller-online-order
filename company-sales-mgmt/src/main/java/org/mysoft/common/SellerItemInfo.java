@@ -12,5 +12,5 @@ public class SellerItemInfo{
 	Long productId;
 	
 	@ApiModelProperty(example="10")
-	Long quanity;
+	Long quantity;
 }

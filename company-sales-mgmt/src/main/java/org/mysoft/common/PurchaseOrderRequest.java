@@ -20,6 +20,7 @@ public class PurchaseOrderRequest {
 	/**
 	 * This is for holding if seller wants to complete the order even if order's products or OOS.
 	 */
+	@ApiModelProperty(example="false")
 	private Boolean optForOOSProducts;
 	
 //	private SellerVO seller;
@@ -27,6 +28,8 @@ public class PurchaseOrderRequest {
 	//Registered seller id
 	@ApiModelProperty(value="sellerId",example="100")
 	Long sellerId;
+	
+	@ApiModelProperty(example="Do delivery by January-26,2019 without fail")
 	private String notesToCompany;
 	
 }

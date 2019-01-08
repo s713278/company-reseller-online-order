@@ -1,5 +1,6 @@
 package org.mysoft.vo;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -25,7 +26,7 @@ import lombok.ToString;
 @ToString
 @Table(name = "CONTACT_INFO")
 @ApiModel(value = "ContactInfo")
-public class ContactInfoVO {
+public class ContactInfoVO implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

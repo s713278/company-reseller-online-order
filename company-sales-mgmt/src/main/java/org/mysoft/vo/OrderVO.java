@@ -11,6 +11,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -25,13 +27,20 @@ import lombok.Data;
 @Table(name="ORDER_INFO")
 public class OrderVO implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5740212406367417182L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name ="id", updatable = false, nullable = false)
 	private Long id;
 	
 	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-	List<OrderItem> items;
+	@JoinTable(name="ORDER_CART_ITEMS")
+	@JoinColumn(name="order_id")
+	List<CartItem> cartItems;
 	
 	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private SellerVO seller ;
@@ -39,7 +48,7 @@ public class OrderVO implements Serializable{
 	private Double tax;
 	private Double disccount;
 	private Double total;
-	private String notesToSeller;
+	private String notesFromSeller;
 	private Boolean allProductsInStock;
 	
 	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)

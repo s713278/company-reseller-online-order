@@ -1,5 +1,7 @@
 package org.mysoft.vo;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,14 +15,14 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="ORDER_ITEM_INFO")
-public class OrderItem {
+@Table(name="CART_ITEMS")
+public class CartItem implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@OneToOne(fetch=FetchType.LAZY)
+	@OneToOne(fetch=FetchType.EAGER)
 	private ProductVO productVO;
 	
 	//Seller requested product quantity

@@ -1,5 +1,6 @@
 package org.mysoft.vo;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -24,11 +25,11 @@ import lombok.ToString;
 @Data
 @ToString
 @Table(name="SELLER_INFO")
-public class SellerVO {
+public class SellerVO implements Serializable{
 	
 	public SellerVO() {
 		PORestriction = false;
-		POLimit = 10000;
+		POLimit = 10000d;
 	}
 
 	@Id
@@ -41,8 +42,8 @@ public class SellerVO {
 	private String name;
 	//@JsonIgnore
 	//private Clob desc;
-	private boolean PORestriction;
-	private double POLimit;
+	private Boolean PORestriction;
+	private Double POLimit;
 	
 	@JsonIgnore
 	@CreationTimestamp

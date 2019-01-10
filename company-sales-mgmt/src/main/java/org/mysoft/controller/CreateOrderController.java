@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,20 +30,10 @@ import io.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping("/api")
-public class OrderController {
+public class CreateOrderController implements IController<PurchaseOrderRequest, PurchaseOrderResponse>{
 
 	@Autowired
 	private OrderService orderService;
-	
-	@ApiOperation("Create Seller Order")
-	@ResponseBody
-	@PostMapping(value="/createOrder", consumes=MediaType.APPLICATION_JSON_UTF8_VALUE ,  produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<PurchaseOrderResponse> createOrder(@RequestBody PurchaseOrderRequest purchaseOrderRequest)
-	{
-		PurchaseOrderResponse response = orderService.createOrder(purchaseOrderRequest);
-		ResponseEntity<PurchaseOrderResponse> responseEntity = new ResponseEntity<PurchaseOrderResponse>(response,HttpStatus.OK);
-		return responseEntity;
-	}
 	
 	@ApiOperation("Search order by orderID")
 	@ResponseBody
@@ -59,4 +48,25 @@ public class OrderController {
 		}
 		return responseEntity;
 	}
+
+	@ApiOperation("Create Seller Order")
+	@ResponseBody
+	@PostMapping(value="/createOrder", consumes=MediaType.APPLICATION_JSON_UTF8_VALUE ,  produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@Override
+	public ResponseEntity<PurchaseOrderResponse> handleRequest(PurchaseOrderRequest purchaseOrderRequest) {
+		PurchaseOrderResponse response = orderService.createOrder(purchaseOrderRequest);
+		ResponseEntity<PurchaseOrderResponse> responseEntity = new ResponseEntity<PurchaseOrderResponse>(response,HttpStatus.OK);
+		return responseEntity;	
+	}
+	@Override
+	public boolean preHandleRequest(PurchaseOrderRequest request, PurchaseOrderResponse response) {
+		return false;
+	}
+
+	@Override
+	public boolean postHandleRequest(PurchaseOrderRequest request, PurchaseOrderResponse response) {
+		return false;
+	}
+	
+	
 }
